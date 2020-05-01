@@ -20,6 +20,8 @@ def get_user(username):
     conn = create_connection(localDB)
     cur = conn.cursor()
     sql = "SELECT username, password FROM users WHERE username=?"
-    cur.execute(sql, username)
+    cur.execute(sql, (username,))
     user = cur.fetchone()
-    return user
+    print (user)
+
+get_user("Bob")
