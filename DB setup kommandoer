@@ -8,4 +8,4 @@ cd /home
 sqlite3 SecureWebAppDB.db
 
 ## oprettelse af tabeller ##
-CREATE TABLE users (userID INTEGER PRIMARY KEY, FirstName varchar(50) NOT NULL, LastName varchar(50) NOT NULL, Email varchar(50) NOT NULL)
+CREATE TABLE users (userID varchar(75) PRIMARY KEY, FirstName varchar(50) NOT NULL, LastName varchar(50) NOT NULL, Email varchar(50) NOT NULL)
