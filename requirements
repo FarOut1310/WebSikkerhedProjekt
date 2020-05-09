@@ -1,3 +1,5 @@
 Flask
 Flask-HTTPAuth
 sqlite3
+Flask-Login
+sqlalchemy
