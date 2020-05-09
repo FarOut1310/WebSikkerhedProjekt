@@ -1,0 +1,11 @@
+## installer sqlite3 database ##
+sudo apt get install sqlite3
+
+## gå til det directory som databasen skal oprettes i ##
+cd /home
+
+## Åben Database ##
+sqlite3 SecureWebAppDB.db
+
+## oprettelse af tabeller ##
+CREATE TABLE users (UserID varchar(75) PRIMARY KEY, FirstName varchar(50) NOT NULL, LastName varchar(50) NOT NULL, Email varchar(50) NOT NULL, Password varchar(125) NOT NULL)
