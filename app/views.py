@@ -36,18 +36,20 @@ def login():
     if request.method == 'GET':
         return '''
                <form action='login' method='POST'>
-                <input type='text' name='username' id='username' placeholder='username'/>
+                <input type='text' name='firstname' id='firstname' placeholder='firstname'/>
                 <input type='password' name='password' id='password' placeholder='password'/>
                 <input type='submit' name='submit_login'/>
                </form>
                '''
-    if request.method =='POST':
-        if request.form['submit'] == 'submit_login':
-            user = db.get_user_with_name_and_password(request.form['username'], request.form['password'])
-            print(user)
-            flask_login.login_user(user)
-        else:
-            return 'Bad Login'
+    if request.method == 'POST':
+        #if request.form['submit'] == 'submit_login':
+        print('prøver at finde en user')
+        user = db.get_user_with_name_and_password(request.form['firstname'], request.form['password'])
+        print(user.firstname)
+        print('fandt ikke nogen user')
+        flask_login.login_user(user)
+    else:
+        return 'Bad Login'
     return redirect(url_for('protected'))
 
 @app.route('/protected')

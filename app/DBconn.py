@@ -35,9 +35,9 @@ def createInitTestData():
     session.commit()
     print('users created')
 
-def get_user_with_name_and_password(username, password):
+def get_user_with_name_and_password(firstname, password):
     session = Session()
-    user = session.query(User).filter(and_(username=username, password=password))
+    user = session.query(User).filter(and_(firstname=firstname, password=password))
     return user
 
 def create_user(firstanme, lastname, email, password):

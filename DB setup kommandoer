@@ -8,4 +8,9 @@ cd /home
 sqlite3 SecureWebAppDB.db
 
 ## oprettelse af tabeller ##
-CREATE TABLE users (UserID varchar(75) PRIMARY KEY, FirstName varchar(50) NOT NULL, LastName varchar(50) NOT NULL, Email varchar(50) NOT NULL, Password varchar(125) NOT NULL)
+CREATE TABLE User (userID varchar(75) PRIMARY KEY, firstName varchar(50) NOT NULL, lastName varchar(50) NOT NULL, email varchar(50) NOT NULL, password varchar(125) NOT NULL);
+CREATE TABLE Friend (friendID varchar(75) PRIMARY KEY, firstName varchar(50), email varchar(50));
+CREATE TABLE UserHasFriends (userID varchar(75) REFERENCES Users(userID), friendID varchar(75) REFERENCES Friend(friendID), PRIMARY KEY (userID, friendID));
+CREATE TABLE Image (imageID varchar(75) PRIMARY KEY, friendID varchar(75) REFERENCES Friend(friendID), userID varchar(75) REFERENCES Users(userID), imageData varbinary(80000), imageName varchar(100), uploadDate varchar(30));
+CREATE TABLE ImageIsShared (imageID varchar(75) REFERENCES Image(imageID), friendID varchar(75) REFERENCES Friend(friendID), PRIMARY KEY (imageID, friendID));
+CREATE TABLE Comment (commentID varchar(75) PRIMARY KEY, imageID varchar(75) REFERENCES Image(imageID), comment varchar(150));
