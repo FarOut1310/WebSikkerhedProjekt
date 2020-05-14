@@ -11,7 +11,7 @@ Session = sessionmaker(bind=engine)
 
 
 class User(Base):
-    __tablename__ = 'users'
+    __tablename__ = 'User'
 
     userID = Column(String, primary_key=True)
     firstName = Column(String)
@@ -26,6 +26,16 @@ class User(Base):
         self.email = email
         self.password = password
 
+class User(Base):
+    __tablename__ = 'Friend'
+
+    friendID = Column(String, primary_key=True)
+    email = Column(String)
+
+    def __init__(self, friendID=None, email=None):
+        self.friendID = friendID
+        self.email = email
+
 def createInitTestData():
     session = Session()
     session.add_all([
@@ -37,7 +47,7 @@ def createInitTestData():
 
 def get_user_with_name_and_password(firstname, password):
     session = Session()
-    user = session.query(User).filter(and_(firstname=firstname, password=password))
+    user = session.query(User).filter(and_(User.firstName == firstname, User.password == password))
     return user
 
 def create_user(firstanme, lastname, email, password):
