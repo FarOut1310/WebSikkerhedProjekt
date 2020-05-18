@@ -6,8 +6,8 @@ import backend.DBconn as db
 app = Flask(__name__)
 app.secret_key = 'super secret string'
 
-login_manager = flask_login.LoginManager()
-login_manager.init_app(app)
+#login_manager = flask_login.LoginManager()
+#login_manager.init_app(app)
 
 class User(flask_login.UserMixin):
     pass
@@ -16,7 +16,7 @@ class User(flask_login.UserMixin):
 @app.route('/createUser', methods=['GET', 'POST'])
 def createUser():
     if request.method == 'GET':
-        return render_template('createUser.html') #to render html from html template files
+        return render_template('createUser.html')
     if request.method == 'POST':
         print('test 1')
        # if request.form['submit'] == 'Submit_create_user':
@@ -27,13 +27,7 @@ def createUser():
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'GET':
-        return '''
-               <form action='login' method='POST'>
-                <input type='text' name='firstname' id='firstname' placeholder='firstname'/>
-                <input type='password' name='password' id='password' placeholder='password'/>
-                <input type='submit' name='submit_login'/>
-               </form>
-               '''
+        return render_template('login.html')
     if request.method == 'POST':
         #if request.form['submit'] == 'submit_login':
         print('prøver at finde en user')
@@ -57,9 +51,9 @@ def logout():
     return 'Logged out'
 
 
-@login_manager.unauthorized_handler
-def unauthorized_handler():
-    return 'Unauthorized'
+#@login_manager.unauthorized_handler
+#def unauthorized_handler():
+#    return 'Unauthorized'
 
 
 if __name__ == '__main__':
