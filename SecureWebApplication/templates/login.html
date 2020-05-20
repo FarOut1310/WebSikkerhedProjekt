@@ -12,10 +12,11 @@
     </div>
 
     <form action='' method='post' class="login-form">
+            {{ form.csrf_token }}
         <fieldset class="login-form__fieldset">
-            <input type='text' name='username' id='username' placeholder='Username' class="login-form__input"/>
-            <input type='password' name='password' id='password' placeholder='Password' class="login-form__input"/>
-            <input type='submit' name='submit_login' class="login-form__submit"/>
+            {{ form.email (placeholder='Email', class="login-form__input") }}
+            {{ form.password (placeholder='Password', class="login-form__input") }}
+            {{ form.submit (placeholder='Login', class="login-form__submit") }}
         </fieldset>
     </form>
 </body>

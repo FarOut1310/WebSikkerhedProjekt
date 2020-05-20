@@ -1,8 +1,27 @@
-{% extends "LayoutTemplate.html" %}
-<form action='createUser' method='POST'>
-    <input type='text' name='firstname' id='username' placeholder='username'/>
-    <input type='text' name='lastname' id='lastname' placeholder='lastname'/>
-    <input type='text' name='email' id='email' placeholder='email'/>
-    <input type='password' name='password' id='password' placeholder='password'/>
-    <input type='submit' name='Submit_create_user'/>
+
+<form action='' method='POST'>
+    {{ form.hidden_tag() }}
+    <div>
+        {{ form.firstname.label }}
+        {{ form.firstname }}
+    </div>
+    <div>
+        {{ form.lastname.label }}
+        {{ form.lastname }}
+    </div>
+    <div>
+        {{ form.email.label }}
+        {{ form.email }}
+    </div>
+    <div>
+        {{ form.password.label }}
+        {{ form.password }}
+    </div>
+    <div>
+        {{ form.confirm_password.label }}
+        {{ form.confirm_password }}
+    </div>
+    <div>
+        {{ form.submit }}
+    </div>
 </form>
