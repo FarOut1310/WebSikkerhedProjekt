@@ -1,4 +1,5 @@
 from flask_wtf import FlaskForm
+from flask_wtf.file import FileAllowed, FileField
 from wtforms import StringField, PasswordField, SubmitField
 from wtforms.validators import DataRequired, EqualTo, Email
 
@@ -19,4 +20,10 @@ class LoginForm(FlaskForm):
 
 
 class AddFriendForm(FlaskForm):
+    email = StringField('Email', validators=[DataRequired(), Email()])
     submit = SubmitField('AddFriend')
+
+
+class UploadPictureForm(FlaskForm):
+    picture = FileField('Choose a picture', validators=[FileAllowed(['jpg', 'png'])])
+    submit = SubmitField('Upload')

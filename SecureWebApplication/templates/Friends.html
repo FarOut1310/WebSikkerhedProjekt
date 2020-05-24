@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form action='' method='post'>
+        {{ form.csrf_token }}
+        <fieldset class="login-form__fieldset">
+            {{ form.email (placeholder='email') }}
+            {{ form.submit (placeholder='Add as friend') }}
+        </fieldset>
+    </form>
+</body>
+</html>

@@ -42,7 +42,7 @@ class Image(db.Model):
     upload_date = db.Column(db.DateTime, nullable=False, default=datetime.utcnow())
 
     def __repr__(self):
-        return f"User('{self.imageData}', '{self.imageName}', '{self.uploadDate}')"
+        return f"User('{self.image_data}', '{self.image_name}', '{self.upload_date}')"
 
 
 class Comment(db.Model):

@@ -1,6 +1,6 @@
 from SecureWebApplication import DBconn, app, forms, bcrypt
 from flask import redirect, url_for, render_template, flash
-from flask_login import login_user
+from flask_login import login_user, current_user
 
 
 @app.route('/register', methods=['GET', 'POST'])
@@ -31,9 +31,18 @@ def login():
 
 @app.route('/Home', methods=['GET', 'POST'])
 def home():
-    return render_template('Home.html')
+    form = forms.UploadPictureForm()
+    print('routes' + current_user.get_id())
+    image_list = DBconn.getPictures(current_user.get_id())
+    if form.validate_on_submit():
+        print("trykket på upload billede")
+        DBconn.uploadImage(form.picture.data, current_user.get_id())
+    return render_template('Home.html', image_list=image_list, form=form)
 
 
-@app.route('/Friend', methods=['GET', 'POST'])
-def home():
-    return render_template('Home.html')
+@app.route('/Friends', methods=['GET', 'POST'])
+def friends():
+    form = forms.AddFriendForm()
+    if form.validate_on_submit():
+        DBconn.addFriend(current_user.get_id(), form.email.data)
+    return render_template('Friends.html', form=form)

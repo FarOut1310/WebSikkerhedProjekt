@@ -1,6 +1,6 @@
 
 <form action='' method='POST'>
-    {{ form.hidden_tag() }}
+    {{ form.csrf_token }}
     <div>
         {{ form.firstname.label }}
         {{ form.firstname }}

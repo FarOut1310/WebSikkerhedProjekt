@@ -5,6 +5,20 @@
     <title>Title</title>
 </head>
 <body>
-<h1>Hej med dig</h1>
+<h1>Hej med {{ current_user.firstname }}</h1>
+<form method="post" enctype="multipart/form-data" class="form-group">
+    {{ form.csrf_token }}
+    {{ form.picture.label }}
+    {{ form.picture(class="form-control-file") }}
+    {{ form.submit (placeholder='Upload picture') }}
+</form>
+{% block content %}
+    {% if image_list %}
+        {% for image in image_list %}
+            <img src=" {{ url_for('static', filename='pictures/' + image) }}">
+         {% endfor %}
+    {% endif %}
+{% endblock content %}
+
 </body>
 </html>
