@@ -1,0 +1,13 @@
+@import "partials/_header";
+
+body{
+    display: grid;
+    grid-template-areas: 
+        'h h h h h'
+        'm m m m m';
+    
+}
+
+main{
+    grid-area: m;
+}
