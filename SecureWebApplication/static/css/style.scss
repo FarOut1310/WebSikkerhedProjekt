@@ -1,13 +1,18 @@
-@import "partials/_header";
+@import "partials/vars";
+@import "partials/header";
+@import "partials/login";
 
 body{
     display: grid;
     grid-template-areas: 
         'h h h h h'
         'm m m m m';
-    
 }
 
 main{
     grid-area: m;
+    min-height: 100%;
+    margin: 0;
+    background: rgb(255,255,255);
+    background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(207,207,207,1) 100%);
 }
