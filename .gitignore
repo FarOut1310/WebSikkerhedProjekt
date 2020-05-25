@@ -1,4 +1,5 @@
 /venv/
+/SecureWebApplication/site.db
 .vs
 .vscode
 env
