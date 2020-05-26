@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
 from flask_wtf.file import FileAllowed, FileField
-from wtforms import StringField, PasswordField, SubmitField
+from wtforms import StringField, PasswordField, SubmitField, TextAreaField, HiddenField
 from wtforms.validators import DataRequired, EqualTo, Email
 
 
@@ -25,5 +25,11 @@ class AddFriendForm(FlaskForm):
 
 
 class UploadPictureForm(FlaskForm):
-    picture = FileField('Choose a picture', validators=[FileAllowed(['jpg', 'png'])])
+    picture = FileField('Choose a picture')
     submit = SubmitField('Upload')
+
+
+class UploadCommentForm(FlaskForm):
+    image_id = HiddenField()
+    comment = TextAreaField()
+    submit = SubmitField('Submit')

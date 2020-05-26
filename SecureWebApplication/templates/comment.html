@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+{% block content %}
+    <img src=" {{ url_for('static', filename=image_name) }}">
+    {% if comment_list %}
+        {% for comment in comment_list %}
+        <textarea readonly>
+            {{ comment.comment }}
+        </textarea>
+        {% endfor %}
+    {% endif %}
+    <form action='' method="post">
+        {{ form.csrf_token }}
+        <input name="image_id" type="hidden" value={{image_id}} />
+        {{ form.comment }}
+        {{ form.submit (placeholder='write a comment') }}
+    </form>
+{% endblock content %}
