@@ -31,17 +31,15 @@ def getPictures(user_id):
     friendlist = models.Friends.query.filter(models.Friends.user_id == user_id).all()
     image_list = []
     for friend in friendlist:
-        list = models.Image.query.filter_by(user_id=friend.friend_id).all()
-        for image in list:
-            image_list.append(image.image_name)
-        print(image_list)
+        image_list = models.Image.query.filter_by(user_id=friend.friend_id).all()
     return image_list
 
+
 def uploadImage(imagedata, user_id):
-    #filesystem setup
-    random_hex = secrets.token_hex(8)
+    #random_hex = secrets.token_hex(8)
     f_name, f_ext = os.path.splitext(imagedata.filename)
-    picture_filename = random_hex + f_ext
+    picture_filename = f_name + f_ext
+    #picture_filename = random_hex + f_ext
     picture_path = os.path.join(app.root_path, 'static/pictures', picture_filename)
     imagedata.save(picture_path)
     timestamp = datetime.datetime.today()
@@ -50,10 +48,12 @@ def uploadImage(imagedata, user_id):
     db.session.add(image)
     db.session.commit()
 
-    ##Database setup
-    #print(imagedata, imagename, user_id)
-    #binaryImageData = io.BytesIO(base64.b64encode(imagedata))
-    #timestamp = datetime.datetime()
-    #image = models.Image(id=str(uuid.uuid4()), user_id=user_id, image_data=binaryImageData, image_name=imagename, upload_date=timestamp)
-    #print(imagedata, imagename, user_id)
-    #db.session.add(image)
+
+def uploadComment(imageid, commentdata):
+    comment = models.Comment(id=str(uuid.uuid4()), image_id=imageid, comment=commentdata)
+    db.session.add(comment)
+    db.session.commit()
+
+def getComments(imageid):
+    comment_list = models.Comment.query.filter(models.Comment.image_id == imageid).all()
+    return comment_list

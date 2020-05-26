@@ -1,5 +1,5 @@
 from SecureWebApplication import DBconn, app, forms, bcrypt
-from flask import redirect, url_for, render_template, flash
+from flask import redirect, url_for, render_template, flash, request
 from flask_login import login_user, current_user
 
 
@@ -31,13 +31,12 @@ def login():
 
 @app.route('/Home', methods=['GET', 'POST'])
 def home():
-    form = forms.UploadPictureForm()
-    print('routes' + current_user.get_id())
+    UploadPictureForm = forms.UploadPictureForm()
     image_list = DBconn.getPictures(current_user.get_id())
-    if form.validate_on_submit():
-        print("trykket på upload billede")
-        DBconn.uploadImage(form.picture.data, current_user.get_id())
-    return render_template('Home.html', image_list=image_list, form=form)
+    if UploadPictureForm.submit.data and UploadPictureForm.validate():
+        DBconn.uploadImage(UploadPictureForm.picture.data, current_user.get_id())
+
+    return render_template('Home.html', image_list=image_list, UploadPictureForm=UploadPictureForm)
 
 
 @app.route('/Friends', methods=['GET', 'POST'])
@@ -46,3 +45,13 @@ def friends():
     if form.validate_on_submit():
         DBconn.addFriend(current_user.get_id(), form.email.data)
     return render_template('Friends.html', form=form)
+
+@app.route('/Comment', methods=['GET', 'POST'])
+def comment():
+    form = forms.UploadCommentForm()
+    image_name = request.args.get('filename')
+    image_id = request.args.get('id')
+    comment_list =DBconn.getComments(image_id)
+    if form.validate_on_submit():
+        DBconn.uploadComment(form.image_id.data, form.comment.data)
+    return render_template('comment.html', form=form, image_name=image_name, image_id=image_id, comment_list=comment_list)
