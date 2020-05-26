@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Acme&family=Source+Code+Pro:wght@500&family=Ubuntu&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Acme&family=Source+Code+Pro:wght@500&family=Ubuntu&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Acme&family=Source+Code+Pro:wght@500&family=Ubuntu&display=swap");
 header {
   grid-area: h;
   height: 50px;
@@ -43,6 +44,45 @@ header {
   margin-top: 20px;
   background-color: #30D318;
   border-color: #30D318;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: bold;
+  font-family: "Source Code Pro", monospace;
+  color: white; }
+
+.register-container {
+  display: block;
+  margin: auto;
+  margin-top: 100px;
+  min-height: 83vh;
+  width: 500px;
+  text-align: center; }
+  .register-container__h1 {
+    font-family: "Source Code Pro", monospace; }
+
+.register-form__fieldset {
+  border: 2px groove #30D318; }
+.register-form__field {
+  margin-top: 15px; }
+.register-form__label {
+  font-family: "Ubuntu", sans-serif;
+  font-size: 16px;
+  color: black; }
+.register-form__input {
+  display: block;
+  margin: auto;
+  width: 250px;
+  height: 30px;
+  margin-top: 15px;
+  color: black;
+  font-family: "Ubuntu", sans-serif;
+  font-size: 16px; }
+.register-form__submit {
+  height: 35px;
+  width: 100px;
+  margin-top: 20px;
+  background-color: #3b5998;
+  border-color: #3b5998;
   border-radius: 5px;
   font-size: 14px;
   font-weight: bold;
