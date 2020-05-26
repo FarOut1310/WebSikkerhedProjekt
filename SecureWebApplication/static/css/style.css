@@ -165,6 +165,65 @@ header {
   font-family: "Source Code Pro", monospace;
   color: white; }
 
+.comment-container {
+  display: block;
+  margin: auto;
+  margin-top: 100px;
+  margin-bottom: 50px;
+  min-height: 83vh;
+  width: 85%;
+  text-align: center; }
+  .comment-container__content {
+    float: left; }
+  .comment-container__img {
+    display: block;
+    margin: auto;
+    max-width: 900px;
+    height: auto;
+    border: 1px solid black; }
+  .comment-container__h2 {
+    font-family: "Ubuntu", sans-serif; }
+  .comment-container__list {
+    float: right;
+    overflow: scroll;
+    height: 650px;
+    border: 1px solid #3b5998; }
+  .comment-container__box {
+    display: block;
+    margin: auto;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    width: 600px;
+    height: auto;
+    background-color: #efe977;
+    border: 1px solid #3b5998;
+    border-radius: 5px;
+    text-align: left;
+    padding: 2px 5px 2px 5px; }
+  .comment-container__p {
+    color: black;
+    font-family: "Acme", sans-serif; }
+
+.comment-form__textarea {
+  width: 400px;
+  height: auto;
+  font-family: "Ubuntu", sans-serif;
+  color: black;
+  display: block;
+  margin: auto;
+  margin-top: 15px;
+  margin-bottom: 15px; }
+.comment-form__submit {
+  height: 35px;
+  width: 175px;
+  background-color: #3b5998;
+  border-color: #3b5998;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: bold;
+  font-family: "Source Code Pro", monospace;
+  color: white; }
+
 body {
   display: grid;
   grid-template-areas: 'h h h h h' 'm m m m m'; }
