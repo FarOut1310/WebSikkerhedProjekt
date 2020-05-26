@@ -132,6 +132,39 @@ header {
     font-size: 14px;
     font-family: "Ubuntu", sans-serif; }
 
+.friend-container {
+  display: block;
+  margin: auto;
+  margin-top: 100px;
+  min-height: 83vh;
+  width: 500px;
+  text-align: center; }
+  .friend-container__h1 {
+    font-family: "Source Code Pro", monospace; }
+
+.friend-form__fieldset {
+  border: 2px groove #3b5998; }
+.friend-form__input {
+  display: block;
+  margin: auto;
+  width: 250px;
+  height: 30px;
+  margin-top: 15px;
+  color: black;
+  font-family: "Ubuntu", sans-serif;
+  font-size: 16px; }
+.friend-form__submit {
+  height: 35px;
+  width: 150px;
+  margin-top: 20px;
+  background-color: #30D318;
+  border-color: #30D318;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: bold;
+  font-family: "Source Code Pro", monospace;
+  color: white; }
+
 body {
   display: grid;
   grid-template-areas: 'h h h h h' 'm m m m m'; }
