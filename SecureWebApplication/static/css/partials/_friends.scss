@@ -1,4 +1,4 @@
-.login-container{
+.friend-container{
     display: block;
     margin: auto;
     margin-top: 100px;
@@ -11,7 +11,7 @@
     }
 }
 
-.login-form{
+.friend-form{
     &__fieldset{
         border: 2px groove $ripoff-blue;
     }
@@ -27,7 +27,7 @@
     }
     &__submit{
         height: 35px;
-        width: 80px;
+        width: 150px;
         margin-top: 20px;
         background-color: $confirm-btn;
         border-color: $confirm-btn;

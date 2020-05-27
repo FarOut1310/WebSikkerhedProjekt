@@ -1,4 +1,4 @@
-.login-container{
+.register-container{
     display: block;
     margin: auto;
     margin-top: 100px;
@@ -11,9 +11,17 @@
     }
 }
 
-.login-form{
+.register-form{
     &__fieldset{
-        border: 2px groove $ripoff-blue;
+        border: 2px groove $confirm-btn;
+    }
+    &__field{
+        margin-top: 15px;
+    }
+    &__label{
+        font-family: $input-font;
+        font-size: 16px;
+        color: black;
     }
     &__input{
         display: block;
@@ -27,10 +35,10 @@
     }
     &__submit{
         height: 35px;
-        width: 80px;
+        width: 100px;
         margin-top: 20px;
-        background-color: $confirm-btn;
-        border-color: $confirm-btn;
+        background-color: $ripoff-blue;
+        border-color: $ripoff-blue;
         border-radius: 5px;
         font-size: 14px;
         font-weight: bold;
