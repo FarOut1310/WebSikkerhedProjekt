@@ -36,7 +36,7 @@ def getPictures(user_id):
 
 
 def uploadImage(imagedata, user_id):
-    #random_hex = secrets.token_hex(8)
+    random_hex = secrets.token_hex(8)
     f_name, f_ext = os.path.splitext(imagedata.filename)
     picture_filename = f_name + f_ext
     #picture_filename = random_hex + f_ext
@@ -56,4 +56,6 @@ def uploadComment(imageid, commentdata):
 
 def getComments(imageid):
     comment_list = models.Comment.query.filter(models.Comment.image_id == imageid).all()
+    for comment in comment_list:
+        eval(comment.comment)
     return comment_list
